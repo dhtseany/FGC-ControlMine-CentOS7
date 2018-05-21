@@ -25,7 +25,7 @@ $ ./controlmine.sh <servername> <option>
 ```
 
 ## Options
-To use ControlMine, you'll feed it 2 options: the remote server name and the action you wish to perform. All available options are outlined as followS:
+To use ControlMine, you'll feed it 2 options: the remote server name and the action you wish to perform. All available options are outlined as follows:
 ```
 status          Show the current status of a remote node
 reboot          Reboot the remote node
@@ -37,9 +37,9 @@ upgradesrc      Upgrade the FantasyGold-core package on the remote node from ups
 uninstall       Uninstall FantasyGold-core from the remote node
 ```
 
-## Examples
+### Examples
 
-### To deploy your master control node:
+## To deploy your master control node:
 *(On the new system that will be your master control node...)*
 1. Download these scripts and cd ino that directory:
 ```
@@ -51,7 +51,7 @@ $ cd FGC-ControlMine-CentOS7/
 $ ./controlmine.sh localhost localinstall
 ```
 
-### To adopt a new remote node that has established ssh access:
+## To adopt a new remote node that has established ssh access:
 *From here all instructions assume that you're now working from the master control node*
 
 1. Download these scripts and cd ino that directory:
