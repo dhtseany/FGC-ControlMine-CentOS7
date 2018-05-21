@@ -43,6 +43,33 @@ if [[ ("$2" == "status") ]];
         exit 0
 fi
 
+if [[ ("$2" == "localinstall") ]];
+    then
+        clear
+        echo "This process will install all build and runtime dependancies and will"
+        echo "install FantasyGold-core from the upstream latest in src."
+        read -e -p "Proceed? [y/N] : " START_LOCALINSTALL
+
+        if [[ ("$START_LOCALINSTALL" == "y" || "$START_LOCALINSTALL" == "Y") ]];
+            then
+                echo "     "
+                echo "============================================="
+                echo "Installing FantasyGold-Core from src..."
+                echo "============================================="
+                echo "     "
+                mkdir ~/ControlMine
+                cd ~/ControlMine 
+                git clone https://github.com/FantasyGold/FantasyGold-Core.git
+                ./autogen.sh
+                ./configure
+                make
+                sudo make install
+            else
+                echo "User aborted process."
+                exit 1
+        fi
+fi
+
 if [[ ("$2" == "upgradesrc") ]];
     then
         clear
