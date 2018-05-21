@@ -61,7 +61,7 @@ $ cd FGC-ControlMine-CentOS7/
 ```
 2. First, we install the dependancies on the remote system:
 ```
-$ $ ./controlmine.sh newserver1 deps
+$ ./controlmine.sh newserver1 deps
 ```
 3. Next, we install the precompiled binaries from our master control node to the new remote node:
 ```
