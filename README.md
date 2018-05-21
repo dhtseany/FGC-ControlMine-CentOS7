@@ -37,9 +37,9 @@ upgradesrc      Upgrade the FantasyGold-core package on the remote node from ups
 uninstall       Uninstall FantasyGold-core from the remote node
 ```
 
-### Examples
+## Examples
 
-## To deploy your master control node:
+### To deploy your master control node:
 *(On the new system that will be your master control node...)*
 1. Download these scripts and cd ino that directory:
 ```
@@ -51,7 +51,7 @@ $ cd FGC-ControlMine-CentOS7/
 $ ./controlmine.sh localhost localinstall
 ```
 
-## To adopt a new remote node that has established ssh access:
+### To adopt a new remote node that has established ssh access:
 *From here all instructions assume that you're now working from the master control node*
 
 1. Download these scripts and cd ino that directory:
@@ -72,12 +72,12 @@ $ ./controlmine.sh newserver1 install
 $ /.controlmine.sh newserver1 adopt
 ```
 
-## To query the status of a remote node after it's been adopted, use:
+### To query the status of a remote node after it's been adopted, use:
 ```
 $ ./controlmine.sh newserver1 status
 ```
 
-## To reboot a remote node:
+### To reboot a remote node:
 ```
 $ ./controlmine.sh newserver1 reboot
 ```
