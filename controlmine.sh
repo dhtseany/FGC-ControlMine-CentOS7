@@ -135,6 +135,7 @@ if [[ ("$2" == "uninstall") ]];
             else
                 echo "User aborted process."
                 exit 1
+        fi
 fi
 
 # If $2 is set to deps install dependancies
