@@ -138,6 +138,15 @@ if [[ ("$2" == "uninstall") ]];
         fi
 fi
 
+if [[ ("$2" == "sshtest") ]];
+    then
+        clear
+        echo "User chose to test ssh...."
+        ssh -q -t $CURRENT_USER@$SERVER "sudo -ll"
+        exit 0
+fi
+
+
 # If $2 is set to deps install dependancies
 if [[ ("$2" == "deps") ]];
     then
