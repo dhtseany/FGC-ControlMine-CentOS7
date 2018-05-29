@@ -211,42 +211,42 @@ if [[ ("$2" == "adopt") ]];
                 NODEPORT=$NODEPORT_Q_R
         fi
 
-        ssh -q -t $CURRENT_USER@$SERVER "
-        cat > $TMP_DIR/fantasygoldd.service << EOL
-        [Unit]
-        Description=fantasygoldd
-        After=network.target
-        [Service]
-        Type=forking
-        User=$F_USER
-        WorkingDirectory=/home/FantasyGold
-        ExecStart=/usr/local/bin/fantasygoldd -conf=/home/FantasyGold/.fantasygold/fantasygold.conf -datadir=/home/FantasyGold/.fantasygold
-        ExecStop=/usr/local/bin/fantasygold-cli -conf=/home/FantasyGold/.fantasygold/fantasygold.conf -datadir=/home/FantasyGold/.fantasygold stop
-        Restart=on-abort
-        [Install]
-        WantedBy=multi-user.target
+ssh -q -t $CURRENT_USER@$SERVER "
+cat > $TMP_DIR/fantasygoldd.service << EOL
+[Unit]
+Description=fantasygoldd
+After=network.target
+[Service]
+Type=forking
+User=$F_USER
+WorkingDirectory=/home/FantasyGold
+ExecStart=/usr/local/bin/fantasygoldd -conf=/home/FantasyGold/.fantasygold/fantasygold.conf -datadir=/home/FantasyGold/.fantasygold
+ExecStop=/usr/local/bin/fantasygold-cli -conf=/home/FantasyGold/.fantasygold/fantasygold.conf -datadir=/home/FantasyGold/.fantasygold stop
+Restart=on-abort
+[Install]
+WantedBy=multi-user.target
 
-        EOL
-        "
+EOL
+"
 
-        ssh -q -t $CURRENT_USER@$SERVER "touch $TMP_DIR/fantasygold.conf"
-        ssh -q -t $CURRENT_USER@$SERVER "
-        cat > $TMP_DIR/fantasygold.conf << EOL
-        rpcuser=${RPCUSER}
-        rpcpassword=${RPCPASSWORD}
-        rpcallowip=127.0.0.1
-        listen=1
-        server=1
-        daemon=1
-        logtimestamps=1
-        maxconnections=256
-        externalip=${PUBLIC_IP}
-        bind=$INTERNAL_IP:$NODEPORT
-        masternodeaddr=${PUBLIC_IP}
-        masternodeprivkey=${KEY}
-        masternode=1
-        EOL
-        "
+ssh -q -t $CURRENT_USER@$SERVER "touch $TMP_DIR/fantasygold.conf"
+ssh -q -t $CURRENT_USER@$SERVER "
+cat > $TMP_DIR/fantasygold.conf << EOL
+rpcuser=${RPCUSER}
+rpcpassword=${RPCPASSWORD}
+rpcallowip=127.0.0.1
+listen=1
+server=1
+daemon=1
+logtimestamps=1
+maxconnections=256
+externalip=${PUBLIC_IP}
+bind=$INTERNAL_IP:$NODEPORT
+masternodeaddr=${PUBLIC_IP}
+masternodeprivkey=${KEY}
+masternode=1
+EOL
+"
 
         ssh -q -t $CURRENT_USER@$SERVER "sudo mkdir -p /home/$F_USER/.fantasygold"
         ssh -q -t $CURRENT_USER@$SERVER "sudo chown -R $F_USER:$F_USER /home/$F_USER"
@@ -380,6 +380,3 @@ if [[ ("$2" == "adopt") ]];
         fi
 
 fi
-
-
-
